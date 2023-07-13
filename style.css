@@ -1,0 +1,270 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  /* background-color: hwb(240 0% 0% / 0.3); */
+  background-color: rgb(150, 150, 255);
+}
+
+img {
+  width: 24px;
+  height: 24px;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+  color: white;
+}
+
+.trello {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* HEader */
+header {
+  background: hwb(240 0% 0% / 0.6);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  width: 90%;
+  height: 60px;
+  margin: auto;
+  color: white;
+}
+
+.btn {
+  padding: 5px 30px;
+  background-color: rgb(120, 120, 255);
+  border-radius: 5px;
+
+}
+
+.search-input {
+  padding: 3px 10px;
+  color: black;
+  outline: none;
+  border: solid 1px gray;
+  border-radius: 5px;
+}
+
+/* Sub Header */
+.sub-header {
+  background-color: rgb(100, 100, 255);
+}
+
+.sub-header__box {
+  width: 90%;
+  margin: auto;
+  color: white;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sub-header__box select {
+  display: block;
+  width: 90px;
+  height: 40px;
+  outline: none;
+  background-color: rgb(120, 120, 255);
+  border-radius: 5px;
+  padding: 0 5px;
+  color: white;
+}
+
+.member {
+  display: flex;
+  gap: 5px;
+}
+
+/* Main */
+.main {
+  width: 90%;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.container {
+  min-height: 10px;
+  height: fit-content;
+  background: #d7d7d7;
+  border-radius: 5px;
+  padding: 10px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.todo-status {
+  font-size: 18px;
+  font-weight: 700;
+  color: green;
+}
+
+.todo-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-height: 40px;
+}
+
+.todo-item {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: #ececec;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.todo-item h3 {
+  font-size: 18px;
+  font-weight: bold;
+
+  background: #556071;
+  color: white;
+  border-radius: 5px;
+  padding: 3px 5px;
+}
+
+.todo-item p {
+  min-height: 50px;
+}
+
+.add-task {
+  width: fit-content;
+  background: inherit;
+  border: none;
+  cursor: pointer;
+  color: #000;
+
+  font-size: 16px;
+}
+
+/* Modal */
+.modal-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #425885d6;
+  width: 100%;
+  height: 100vh;
+
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal {
+  background: #0000007d;
+  color: white;
+  width: 40%;
+  padding: 10px 40px;
+  border-radius: 10px;
+}
+
+.modal h1 {
+  color: white;
+  margin-bottom: 20px;
+  font-size: 26px;
+  font-weight: bold;
+}
+
+.modal form {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.modal form input, .modal form select {
+  width: 100%;
+  outline: none;
+  padding: 5px 10px;
+  color: #000;
+  border: 1px solid gray;
+  border-radius: 5px;
+}
+
+.modal form button {
+  background: #138869;
+  width: 50%;
+
+  padding: 5px 0;
+  border-radius: 5px;
+}
+
+.exit {
+  color: white;
+  font-size: 24px;
+  font-weight: 900;
+  background: #00000095;
+  border-radius: 5px;
+  padding: 5px 50px;
+  position: absolute;
+  top: 20px;
+  left: 80%;
+}
+
+.task-member {
+  width: 100%;
+  height: 60px;
+
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  overflow:auto;
+}
+
+.member-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #545353;
+  padding: 10px 25px;
+  border-radius: 10px;
+  position: relative;
+  width: fit-content;
+
+  & img {
+    width: 20px;
+    height: 20px;
+  }
+
+}
+
+.member-box__delete {
+  position: absolute;
+  top: 10%;
+  left: 90%;
+  cursor: pointer;
+}
+
+/* DnD */
+.hide {
+  display: none;
+}
+
+.hovered {
+  padding-top: 5px;
+  border-top: 1px solid green;
+}
+
+.hold {
+  cursor: pointer;
+  border: solid red 4px;
+}

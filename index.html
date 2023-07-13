@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Daily - ToDo</title>
+  </head>
+  <body>
+    <div class="trello">
+      <header>
+        <div class="header">
+          <p>Trello</p>
+          <p>Workspace</p>
+          <p>Recent</p>
+          <p>Starred</p>
+          <button class="btn create-btn">Create</button>
+          <input type="text" placeholder="Search" class="search-input" />
+          <img src="/public/icons/notification.png" alt="" />
+          <img src="/public/icons/notification.png" alt="" />
+          <img src="/public/icons/notification.png" alt="" />
+        </div>
+      </header>
+
+      <div class="sub-header">
+        <div class="sub-header__box">
+          <select>
+            <option value="">Board</option>
+          </select>
+          <p>Team board</p>
+          <img src="/public/icons/notification.png" alt="" />
+          <p>Acme, Inc.</p>
+          <div class="member">
+            <img src="/public/icons/notification.png" alt="" />
+            <span>+1</span>
+          </div>
+          <button class="btn invite-btn">Invite</button>
+        </div>
+      </div>
+
+      <div class="main">
+        <div class="container">
+          <span class="todo-status">To Do</span>
+          <div class="todo-list"></div>
+          <button class="add-task create-btn">+ Add a card</button>
+        </div>
+        <div class="container">
+          <span class="todo-status">Doing</span>
+          <div class="todo-list"></div>
+          <button class="add-task create-btn">+ Add a card</button>
+        </div>
+        <div class="container">
+          <span class="todo-status">Done</span>
+          <div class="todo-list"></div>
+          <button class="add-task create-btn">+ Add a card</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-bg">
+      <div class="modal">
+        <h1>Create a Task</h1>
+        <form name="form">
+          <input name="title" type="text" placeholder="Title" />
+          <input name="description" type="text" placeholder="Description" />
+          <select name="member" id="select-member"></select>
+          <div class="task-member">
+            <div class="member-box">
+              <img src="/public/icons/notification.png" alt="">
+              <span>Fakhriddin</span>
+              <div class="member-box__delete">x</div>
+            </div>
+          </div>
+          <select name="status" id="">
+            <option value="todo">To Do</option>
+            <option value="doing">Doing</option>
+            <option value="done">Done</option>
+          </select>
+          <button type="submit">Create ToDo</button>
+        </form>
+      </div>
+
+      <button class="exit">Close</button>
+    </div>
+
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>
