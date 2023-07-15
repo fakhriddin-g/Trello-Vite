@@ -1,19 +1,148 @@
 {
-  "posts": [
+  "members": [
     {
       "id": 1,
-      "title": "json-server",
-      "author": "typicode"
+      "name": "Fakhriddin",
+      "surname": "Mirakov",
+      "age": "25",
+      "specialization": "software development",
+      "img": "img1"
+    },
+    {
+      "id": 2,
+      "name": "Refat",
+      "surname": "",
+      "age": "25",
+      "specialization": "software development",
+      "img": "img2"
+    },
+    {
+      "id": 3,
+      "name": "Amal",
+      "surname": "",
+      "age": "25",
+      "specialization": "software development",
+      "img": "img3"
+    },
+    {
+      "id": 4,
+      "name": "Shavkat",
+      "surname": "",
+      "age": "25",
+      "specialization": "software development",
+      "img": "img4"
+    },
+    {
+      "id": 5,
+      "name": "Daler",
+      "surname": "",
+      "age": "25",
+      "specialization": "software development",
+      "img": "img5"
+    },
+    {
+      "name": "Aziza",
+      "surname": "Mirakova",
+      "age": "25",
+      "specialization": "Tourism",
+      "img": "img5",
+      "id": 6
+    },
+    {
+      "name": "Sarboz",
+      "surname": "Fakhriddin",
+      "age": "25",
+      "specialization": "Tourism",
+      "img": "img3",
+      "id": 7
     }
   ],
-  "comments": [
+  "blocks": [
     {
       "id": 1,
-      "body": "some comment",
-      "postId": 1
+      "title": "Block 1",
+      "tasks": []
+    },
+    {
+      "id": 2,
+      "title": "Block 2",
+      "tasks": []
+    },
+    {
+      "id": 3,
+      "title": "Block 3",
+      "tasks": []
+    },
+    {
+      "title": "Dilnur",
+      "id": 4
+    },
+    {
+      "title": "Dont",
+      "id": 5
     }
   ],
-  "profile": {
-    "name": "typicode"
-  }
+  "todos": [
+    {
+      "id": 1,
+      "title": "Todo something very good",
+      "description": "lorem ipsum dolorsit amet",
+      "members": [],
+      "status": "done",
+      "date": "2023-01-01"
+    },
+    {
+      "id": 0.017290619777106997,
+      "members": [
+        3,
+        1,
+        4
+      ],
+      "title": "Id",
+      "description": "Description",
+      "status": "done"
+    },
+    {
+      "id": 0.8973876989756111,
+      "members": [
+        2,
+        5,
+        3
+      ],
+      "title": "Some",
+      "description": "Description",
+      "status": "todo"
+    },
+    {
+      "id": 0.4639512236629364,
+      "members": [
+        1
+      ],
+      "title": "",
+      "description": "",
+      "status": "todo"
+    },
+    {
+      "id": 0.2605260595647152,
+      "members": [
+        1,
+        4,
+        5
+      ],
+      "title": "Member",
+      "description": "Description",
+      "status": "doing"
+    },
+    {
+      "id": 0.5548351471919895,
+      "members": [
+        3,
+        5,
+        4
+      ],
+      "title": "Lorem",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam nesciunt sapiente, quibusdam autem ad repellendus non suscipit iure nulla asperiores enim animi, sed modi omnis voluptatem amet nihil esse inventore!",
+      "status": "doing"
+    }
+  ]
 }

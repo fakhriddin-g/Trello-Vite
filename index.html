@@ -31,14 +31,15 @@
           <img src="/public/icons/notification.png" alt="" />
           <p>Acme, Inc.</p>
           <div class="member">
-            <img src="/public/icons/notification.png" alt="" />
-            <span>+1</span>
+            <span>+0</span>
           </div>
           <button class="btn invite-btn">Invite</button>
+          <button class="btn" id="add-block">Add Block</button>
         </div>
       </div>
 
       <div class="main">
+        
         <div class="container">
           <span class="todo-status">To Do</span>
           <div class="todo-list"></div>
@@ -63,19 +64,50 @@
         <form name="form">
           <input name="title" type="text" placeholder="Title" />
           <input name="description" type="text" placeholder="Description" />
-          <select name="member" id="select-member"></select>
-          <div class="task-member">
-            <div class="member-box">
-              <img src="/public/icons/notification.png" alt="">
-              <span>Fakhriddin</span>
-              <div class="member-box__delete">x</div>
-            </div>
-          </div>
+          <select id="select-member">
+            <option value="">Please choose a member</option>
+          </select>
+          <div class="task-member"></div>
           <select name="status" id="">
             <option value="todo">To Do</option>
             <option value="doing">Doing</option>
             <option value="done">Done</option>
           </select>
+          <button type="submit">Create ToDo</button>
+        </form>
+      </div>
+
+      <button class="exit">Close</button>
+    </div>
+
+    <div class="invite-bg modal-bg">
+      <div class="invite-modal modal">
+        <h1>Invite Members</h1>
+        <form name="inviteForm">
+          <input name="name" type="text" placeholder="Name" />
+          <input name="surname" type="text" placeholder="Surname" />
+          <input name="age" type="number" placeholder="Age" />
+          <input name="specialization" type="text" placeholder="Specialization" />
+          <select name="img" id="">
+            <option>Please choose an image</option>
+            <option value="img1">img1</option>
+            <option value="img2">img2</option>
+            <option value="img3">img3</option>
+            <option value="img4">img4</option>
+            <option value="img5">img5</option>
+          </select>
+          <button type="submit">Create ToDo</button>
+        </form>
+      </div>
+
+      <button class="exit">Close</button>
+    </div>
+
+    <div class="add-block-bg modal-bg">
+      <div class="add-block-modal modal">
+        <h1>Create a Task</h1>
+        <form name="addBlockForm">
+          <input name="title" type="text" placeholder="Block Status" />
           <button type="submit">Create ToDo</button>
         </form>
       </div>

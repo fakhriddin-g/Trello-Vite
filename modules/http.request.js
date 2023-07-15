@@ -27,4 +27,8 @@ export const useHttp = () => {
     }
   }
 
+  return {
+    request
+  }
+
 }

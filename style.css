@@ -85,19 +85,53 @@ header {
 
 .member {
   display: flex;
-  gap: 5px;
+  align-items: center;
+}
+
+.member img, .member span {
+  width: 34px;
+  height: 34px;
+  background: #979797;
+  padding: 5px;
+  border-radius: 100%;
+  margin-right: -15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.member img:hover, .member span:hover {
+  /* width: 38px;
+  height: 38px; */
+  scale: 1.1;
+  background: #58a657;
+  transition: 1s ease;
 }
 
 /* Main */
 .main {
   width: 90%;
   margin: auto;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  /* display: grid; */
+  /* grid-template-columns: repeat(3, 1fr); */
   gap: 20px;
+  overflow-x: auto;
+}
+
+.main::-webkit-scrollbar {
+  height: 5px;
+}
+
+.main::-webkit-scrollbar-thumb {
+  background-color: rgb(73, 73, 143);
+  border-radius: 20px;
+  height: 5px;
 }
 
 .container {
+  min-width: 300px;
   min-height: 10px;
   height: fit-content;
   background: #d7d7d7;
@@ -107,6 +141,7 @@ header {
   display: flex;
   flex-direction: column;
   gap: 15px;
+  margin-bottom: 30px;
 }
 
 .todo-status {
@@ -143,6 +178,23 @@ header {
 
 .todo-item p {
   min-height: 50px;
+}
+
+.todo-item .img-box {
+  background: #556071;
+  border-radius: 5px;
+  padding: 3px 5px;
+  display: flex;
+  align-items: center;
+  height: 34px;
+}
+
+.todo-item .img-box img {
+  scale: 1.2;
+  background: #ababab;
+  border-radius: 100%;
+  padding: 3px;
+  margin-right: -10px;
 }
 
 .add-task {
@@ -254,6 +306,11 @@ header {
   cursor: pointer;
 }
 
+/* Invite Modal */
+.form-member-img img {
+  cursor: pointer;
+}
+
 /* DnD */
 .hide {
   display: none;
@@ -261,7 +318,10 @@ header {
 
 .hovered {
   padding-top: 5px;
-  border-top: 1px solid green;
+  padding-bottom: 5px;
+  border-top: 1px dashed green;
+  border-bottom: 1px dashed rgb(11, 0, 128);
+  background: #acacac;
 }
 
 .hold {

@@ -1,5 +1,18 @@
+import { useHttp } from "./http.request"
 
+let taskMemberBox = document.querySelector('.task-member')
+const { request } = useHttp()
+
+export let selectedMemberArr = []
+let memberArr = []
+let membersArr = []
+request("/members", "get").then(res => {
+  memberArr = res
+})
+
+// Set Options
 export function selectOption(arr, select) {
+
   for (const member of arr) {
     let option = new Option()
 
@@ -7,19 +20,25 @@ export function selectOption(arr, select) {
 
     select.append(option)
 
-    arr.forEach(item => {
+    select.onchange = () => {
+      let selectedOption = select.options[select.selectedIndex];
+      let memberName = select.value
+      let selectedUser = memberArr.find(item => item.name === memberName);
+      select.removeChild(selectedOption);
+      membersArr.push(selectedUser)
+      taskMember(membersArr, taskMemberBox, select)
 
-      let opt = new Option(item.name, JSON.stringify(item))
-      let filtred = JSON.parse(opt.value)
-      console.log(filtred);
-      // if (!temp.includes(filtred.id)) {
-        // select.append(opt)
-      // }
-    })
+      selectedMemberArr.push(selectedUser)
+      // console.log(selectedMemberArr);
+    }
   }
+
 }
 
-export function taskMember(arr, place) {
+// Option Members
+export function taskMember(arr, place, select) {
+  place.innerHTML = ""
+
   for (const member of arr) {
     let memberBox = document.createElement('div')
     let memberBoxImg = document.createElement('img')
@@ -35,5 +54,7 @@ export function taskMember(arr, place) {
 
     memberBox.append(memberBoxImg, memberBoxSpan, memberBoxDelete)
     place.append(memberBox)
+    
   }
+
 }
