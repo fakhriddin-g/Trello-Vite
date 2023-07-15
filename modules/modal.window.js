@@ -1,3 +1,6 @@
+import { temp_id } from "../main"
+import { temp} from "./db"
+
 // Create Invite Members
 export function inviteMemberFunction(arr, place) {
   // place.innerHTML = ""
@@ -12,6 +15,7 @@ export function inviteMemberFunction(arr, place) {
 }
 
 // Container Block
+let arr = []
 export function addBlockFunction(arr, place) {
   for (const block of arr) {
     let blockContainer = document.createElement('div')
@@ -29,5 +33,27 @@ export function addBlockFunction(arr, place) {
 
     blockContainer.append(blockSpan, blockTodoList, blockButton)
     place.append(blockContainer)
+
+    blockTodoList.ondragover = (e) => {
+      e.preventDefault()
+    }
+  
+    blockTodoList.ondragenter = function (e) {
+      e.preventDefault()
+      this.classList.add('hovered')
+    }
+  
+    blockTodoList.ondragleave = function () {
+      this.className = 'todo-list'
+    }
+  
+    blockTodoList.ondrop = function () {
+      this.className = 'todo-list'
+      temp.forEach((item) => {
+        if (item.id == temp_id) {
+          this.append(item)
+        }
+      })
+    }
   }
 }

@@ -1,3 +1,4 @@
+import { temp } from "./modules/db"
 import { useHttp } from "./modules/http.request"
 import { selectOption, selectedMemberArr } from "./modules/interface"
 import { addBlockFunction, inviteMemberFunction } from "./modules/modal.window"
@@ -37,9 +38,9 @@ request("/blocks", "get").then(res => {
   addBlockFunction(res, block)
 })
 
-// Variable
-let temp = []
-let temp_id
+// // Variable
+// let temp = []
+export let temp_id
 
 // Add Tasks Form Onsubmit
 form.onsubmit = (e) => {
@@ -155,7 +156,7 @@ function taskFunction(arr) {
     }
   }
 
-} // Create Tasks
+}
 
 // DnD
 for (const list of todoList) {
@@ -180,7 +181,7 @@ for (const list of todoList) {
       }
     })
   }
-} // DnD
+}
 
 // Modal
 createTask.forEach(btn => {

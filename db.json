@@ -143,6 +143,16 @@
       "title": "Lorem",
       "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam nesciunt sapiente, quibusdam autem ad repellendus non suscipit iure nulla asperiores enim animi, sed modi omnis voluptatem amet nihil esse inventore!",
       "status": "doing"
+    },
+    {
+      "id": 0.9069926729222009,
+      "members": [
+        6,
+        1
+      ],
+      "title": "New Task",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam nesciunt sapiente, quibusdam autem ad repellendus non suscipit iure nulla asperiores enim animi, sed modi omnis voluptatem amet nihil esse inventore!",
+      "status": "done"
     }
   ]
 }
