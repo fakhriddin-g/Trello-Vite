@@ -80,31 +80,13 @@
   ],
   "todos": [
     {
-      "id": 1,
-      "members": [],
-      "title": "Todo something very good",
-      "description": "lorem ipsum dolorsit amet",
-      "status": "todo",
-      "date": "2023-01-01"
-    },
-    {
-      "id": 0.8274300090078379,
+      "id": 0.24940804544633965,
       "members": [
-        2,
-        5
+        4
       ],
-      "title": "Lorem",
-      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam nesciunt sapiente, quibusdam autem ad repellendus non suscipit iure nulla asperiores enim animi, sed modi omnis voluptatem amet nihil esse inventore!",
-      "status": "todo"
-    },
-    {
-      "id": 0.5666322981416507,
-      "members": [
-        3
-      ],
-      "title": "Whots now",
-      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam nesciunt sapiente, quibusdam autem ad repellendus non suscipit iure nulla asperiores enim animi, sed modi omnis voluptatem amet nihil esse inventore!",
-      "status": "done"
+      "title": "hello world",
+      "description": "dsadasd",
+      "status": "doing"
     }
   ]
 }
