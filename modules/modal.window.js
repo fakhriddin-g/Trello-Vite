@@ -1,5 +1,8 @@
 import { temp_id } from "../main"
 import { temp} from "./db"
+import { useHttp } from "./http.request"
+
+const {request} = useHttp()
 
 // Create Invite Members
 export function inviteMemberFunction(arr, place) {
@@ -15,45 +18,51 @@ export function inviteMemberFunction(arr, place) {
 }
 
 // Container Block
-let arr = []
-export function addBlockFunction(arr, place) {
-  for (const block of arr) {
-    let blockContainer = document.createElement('div')
-    let blockSpan = document.createElement('span')
-    let blockTodoList = document.createElement('div')
-    let blockButton= document.createElement('button')
+// let arr = []
+// export function addBlockFunction(arr, place) {
+//   for (const block of arr) {
+//     let data = block.title.toLowerCase().trim()
 
-    blockContainer.classList.add('container')
-    blockSpan.classList.add('todo-status')
-    blockTodoList.classList.add('todo-list')
-    blockButton.classList.add('add-task', 'create-btn')
+//     let blockContainer = document.createElement('div')
+//     let blockSpan = document.createElement('span')
+//     let blockTodoList = document.createElement('div')
+//     let blockButton= document.createElement('button')
 
-    blockSpan.innerHTML = block.title
-    blockButton.innerHTML = "+ Add a card"
+//     blockContainer.classList.add('container')
+//     blockSpan.classList.add('todo-status')
+//     blockTodoList.classList.add('todo-list')
+//     blockTodoList.setAttribute('data', data)
+//     blockButton.classList.add('add-task', 'create-btn')
 
-    blockContainer.append(blockSpan, blockTodoList, blockButton)
-    place.append(blockContainer)
+//     blockSpan.innerHTML = block.title
+//     blockButton.innerHTML = "+ Add a card"
 
-    blockTodoList.ondragover = (e) => {
-      e.preventDefault()
-    }
+//     blockContainer.append(blockSpan, blockTodoList, blockButton)
+//     place.append(blockContainer)
+
+//     blockTodoList.ondragover = (e) => {
+//       e.preventDefault()
+//     }
   
-    blockTodoList.ondragenter = function (e) {
-      e.preventDefault()
-      this.classList.add('hovered')
-    }
+//     blockTodoList.ondragenter = function (e) {
+//       e.preventDefault()
+//       this.classList.add('hovered')
+//     }
   
-    blockTodoList.ondragleave = function () {
-      this.className = 'todo-list'
-    }
+//     blockTodoList.ondragleave = function () {
+//       this.className = 'todo-list'
+//     }
   
-    blockTodoList.ondrop = function () {
-      this.className = 'todo-list'
-      temp.forEach((item) => {
-        if (item.id == temp_id) {
-          this.append(item)
-        }
-      })
-    }
-  }
-}
+//     blockTodoList.ondrop = function () {
+//       this.className = 'todo-list'
+//       temp.forEach((item) => {
+//         if (item.id == temp_id) {
+//           request("/todos/" + item.id, "patch", {
+//             status: this.getAttribute(['data'])
+//           })
+//           this.append(item)
+//         }
+//       })
+//     }
+//   }
+// }

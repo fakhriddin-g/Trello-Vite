@@ -6,6 +6,7 @@ const { request } = useHttp()
 export let selectedMemberArr = []
 let memberArr = []
 let membersArr = []
+
 request("/members", "get").then(res => {
   memberArr = res
 })
@@ -29,7 +30,6 @@ export function selectOption(arr, select) {
       taskMember(membersArr, taskMemberBox, select)
 
       selectedMemberArr.push(selectedUser)
-      // console.log(selectedMemberArr);
     }
   }
 
@@ -57,4 +57,16 @@ export function taskMember(arr, place, select) {
     
   }
 
+}
+
+// Option Status
+export function statusOption(arr, place) {
+  console.log(arr);
+  for (const status of arr) {
+    let option = new Option()
+
+    option.innerHTML = status
+
+    place.append(option)
+  }
 }

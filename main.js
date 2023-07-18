@@ -1,16 +1,20 @@
 import { temp } from "./modules/db"
 import { useHttp } from "./modules/http.request"
-import { selectOption, selectedMemberArr } from "./modules/interface"
-import { addBlockFunction, inviteMemberFunction } from "./modules/modal.window"
+import { selectOption, selectedMemberArr, statusOption } from "./modules/interface"
+import { inviteMemberFunction } from "./modules/modal.window"
+import { searching } from "./modules/search"
 const { request } = useHttp()
 
 let block = document.querySelector('.main')
 let todoList = document.querySelectorAll('.todo-list')
+let todoItem = document.querySelectorAll('.todo-item')
 let createTask = document.querySelectorAll('.create-btn')
+
 let modal = document.querySelector('.modal-bg')
 let inviteModal = document.querySelector('.invite-bg')
 let addBlockModal = document.querySelector('.add-block-bg')
 let closeModal = document.querySelectorAll('.exit')
+
 let form = document.forms.form
 let inviteForm = document.forms.inviteForm
 let addBlockForm = document.forms.addBlockForm
@@ -22,6 +26,9 @@ let inviteMember = document.querySelector('.member')
 let inviteMemberAmount = document.querySelector('.member span')
 let inviteMemberBtn = document.querySelector('.invite-btn')
 let addBlockBtn = document.querySelector('#add-block')
+
+let search = document.querySelector('.search-input')
+let taskStatus = document.querySelector('.task-status')
 
 // Request
 request("/members", "get").then(res => {
@@ -39,8 +46,12 @@ request("/blocks", "get").then(res => {
 })
 
 // // Variable
-// let temp = []
+let todoGlobalStatus
 export let temp_id
+let h3Arr = []
+let statusOptionArr = []
+
+
 
 // Add Tasks Form Onsubmit
 form.onsubmit = (e) => {
@@ -89,7 +100,7 @@ inviteForm.onsubmit = (e) => {
 // Add Block Form
 addBlockForm.onsubmit = (e) => {
   e.preventDefault()
-  
+
   let block = {}
 
   let fm = new FormData(addBlockForm)
@@ -129,6 +140,7 @@ function taskFunction(arr) {
     item.classList.add('todo-item')
     item.setAttribute('id', todo.id)
     item.setAttribute('draggable', true)
+    item.setAttribute('data', todo.status)
 
     h3.innerHTML = todo.title
     p.innerHTML = todo.description
@@ -144,19 +156,79 @@ function taskFunction(arr) {
     }
 
     temp.push(item)
+    h3Arr.push(h3)
 
     item.ondragstart = () => {
       temp_id = todo.id
       item.classList.add('hold')
       setTimeout(() => (item.className = 'hide'), 0)
-    }
+  }
 
     item.ondragend = () => {
       item.className = 'todo-item'
     }
+
+    // Search
+    searching(h3Arr, search)
   }
 
 }
+
+// Add Block
+let arr = []
+function addBlockFunction(arr, place) {
+  for (const block of arr) {
+    let data = block.title.toLowerCase().trim()
+
+    let blockContainer = document.createElement('div')
+    let blockSpan = document.createElement('span')
+    let blockTodoList = document.createElement('div')
+    let blockButton = document.createElement('button')
+
+    blockContainer.classList.add('container')
+    blockSpan.classList.add('todo-status')
+    blockTodoList.classList.add('todo-list')
+    blockTodoList.setAttribute('data', data)
+    blockButton.classList.add('add-task', 'create-btn')
+
+    blockSpan.innerHTML = block.title
+    blockButton.innerHTML = "+ Add a card"
+
+    blockContainer.append(blockSpan, blockTodoList, blockButton)
+    place.append(blockContainer)
+
+    statusOptionArr.push(data)
+
+    blockTodoList.ondragover = (e) => {
+      e.preventDefault()
+    }
+
+    blockTodoList.ondragenter = function (e) {
+      e.preventDefault()
+      this.classList.add('hovered')
+    }
+
+    blockTodoList.ondragleave = function () {
+      this.className = 'todo-list'
+    }
+
+    blockTodoList.ondrop = function () {
+      this.className = 'todo-list'
+      temp.forEach((item) => {
+        if (item.id == temp_id) {
+          request("/todos/" + item.id, "patch", {
+            status: this.getAttribute(['data'])
+          })
+          this.append(item)
+        }
+      })
+    }
+  }
+
+  statusOption(statusOptionArr, taskStatus)
+}
+
+
 
 // DnD
 for (const list of todoList) {
@@ -173,10 +245,14 @@ for (const list of todoList) {
     this.className = 'todo-list'
   }
 
+
   list.ondrop = function () {
     this.className = 'todo-list'
     temp.forEach((item) => {
       if (item.id == temp_id) {
+        request("/todos/" + item.id, "patch", {
+          status: this.getAttribute(['data'])
+        })
         this.append(item)
       }
     })
@@ -205,4 +281,3 @@ inviteMemberBtn.onclick = () => {
 addBlockBtn.onclick = () => {
   addBlockModal.style.display = 'flex'
 }
-// Modal
