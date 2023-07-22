@@ -23,12 +23,13 @@ button {
 .trello {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  /* gap: 10px; */
 }
 
 /* HEader */
 header {
   background: hwb(240 0% 0% / 0.6);
+  border-bottom: 2px solid gray;
 }
 
 .header {
@@ -37,6 +38,7 @@ header {
   align-items: center;
 
   width: 90%;
+  max-width: 1400px;
   height: 60px;
   margin: auto;
   color: white;
@@ -46,7 +48,12 @@ header {
   padding: 5px 30px;
   background-color: rgb(120, 120, 255);
   border-radius: 5px;
+  transition: 1s ease;
+}
 
+.btn:hover {
+  background-color: white;
+  color: rgb(120, 120, 255);
 }
 
 .search-input {
@@ -60,10 +67,12 @@ header {
 /* Sub Header */
 .sub-header {
   background-color: rgb(100, 100, 255);
+  margin-bottom: 10px;
 }
 
 .sub-header__box {
   width: 90%;
+  max-width: 1400px;
   margin: auto;
   color: white;
   height: 60px;
@@ -81,6 +90,23 @@ header {
   border-radius: 5px;
   padding: 0 5px;
   color: white;
+}
+
+.board-select {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.board-select img {
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
+}
+
+.board-select select {
+  width: 150px;
+  height: 30px;
 }
 
 .member {
@@ -112,6 +138,7 @@ header {
 /* Main */
 .main {
   width: 90%;
+  max-width: 1400px;
   margin: auto;
   display: flex;
   /* display: grid; */
@@ -205,6 +232,22 @@ header {
   color: #000;
 
   font-size: 16px;
+}
+
+.trash-img {
+  scale: 2;
+  position: fixed;
+  bottom: 10%;
+  left: 4%;
+
+  display: none;
+  transition: 1s ease;
+}
+
+.trash-img-hover {
+  scale: 3;
+  background: red;
+  border-radius: 100%;
 }
 
 /* Modal */

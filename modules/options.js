@@ -60,13 +60,29 @@ export function taskMember(arr, place, select) {
 }
 
 // Option Status
-export function statusOption(arr, place) {
-  console.log(arr);
+export function statusOptionFunction(arr, place) {
   for (const status of arr) {
     let option = new Option()
+
+    option.value = status.replaceAll(' ', '')
 
     option.innerHTML = status
 
     place.append(option)
+  }
+}
+
+// Board Options
+export function boardOptionFunction(arr, place) {
+  for (const board of arr) {
+    let option = new Option()
+
+    option.innerHTML = board.title
+
+    place.append(option)
+
+    // place.onchange = () => {
+    //   let selectedOption = place.options[place.selectedIndex]
+    // }
   }
 }
