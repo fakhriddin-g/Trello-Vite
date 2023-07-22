@@ -164,17 +164,23 @@ header {
   background: #d7d7d7;
   border-radius: 5px;
   padding: 10px;
-
+  
   display: flex;
   flex-direction: column;
   gap: 15px;
   margin-bottom: 30px;
+  position: relative;
 }
 
 .todo-status {
   font-size: 18px;
   font-weight: 700;
   color: green;
+}
+
+.move-block {
+  position: absolute;
+  right: 5%;
 }
 
 .todo-list {

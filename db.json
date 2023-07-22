@@ -84,7 +84,33 @@
     {
       "title": "Block Status",
       "id": 6
+    },
+    {
+      "title": "Daily News",
+      "id": 7
     }
   ],
-  "todos": []
+  "todos": [
+    {
+      "id": 0.9043993921946709,
+      "members": [],
+      "title": "Task 2",
+      "description": "",
+      "status": "todo"
+    },
+    {
+      "id": 0.2953341256497335,
+      "members": [],
+      "title": "Task 3",
+      "description": "",
+      "status": "todo"
+    },
+    {
+      "id": 0.830548141499099,
+      "members": [],
+      "title": "",
+      "description": "",
+      "status": "todo"
+    }
+  ]
 }

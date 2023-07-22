@@ -164,10 +164,24 @@ function taskFunction(arr) {
       trashImg.style.display = 'none'
     }
 
+    item.ondragenter = (e) => {
+      let center = item.getBoundingClientRect().height / 2
+      
+      let {layerY} = e
+
+      let items = document.querySelectorAll('.todo-item')
+      items.forEach(item => item.style.margin = '0')
+
+      if (layerY > center) {
+        item.style.marginBottom = '100px'
+      } else {
+        item.style.marginTop = '100px'
+      }
+    }
+    
     // Search
     searching(h3Arr, search)
   }
-
 }
 
 // Add Block
@@ -177,20 +191,22 @@ function addBlockFunction(arr, place) {
     let data = block.title.toLowerCase().trim()
 
     let blockContainer = document.createElement('div')
-    let blockSpan = document.createElement('span')
+    let blockHeader = document.createElement('h2')
+    let blockHeaderDrag = document.createElement('img')
     let blockTodoList = document.createElement('div')
     let blockButton = document.createElement('button')
 
     blockContainer.classList.add('container')
-    blockSpan.classList.add('todo-status')
+    blockHeader.classList.add('todo-status')
+    blockHeaderDrag.classList.add('move-block')
     blockTodoList.classList.add('todo-list')
-    // blockTodoList.setAttribute('data', data)
     blockButton.classList.add('add-task', 'create-btn')
 
-    blockSpan.innerHTML = block.title
+    blockHeader.innerHTML = block.title
     blockButton.innerHTML = "+ Add a card"
+    blockHeaderDrag.src = '/public/images/img1.png'
 
-    blockContainer.append(blockSpan, blockTodoList, blockButton)
+    blockContainer.append(blockHeader, blockHeaderDrag, blockTodoList, blockButton)
     place.append(blockContainer)
 
     statusOptionArr.push(data)
@@ -210,7 +226,11 @@ function addBlockFunction(arr, place) {
       this.className = 'todo-list'
     }
 
-    blockTodoList.ondrop = function (e) {
+    blockTodoList.ondrop = function () {
+
+      let items = document.querySelectorAll('.todo-item')
+      items.forEach(item => item.style.margin = '0')
+
       this.className = 'todo-list'
       temp.forEach((item) => {
         if (item.id == temp_id) {
@@ -249,8 +269,9 @@ trashImg.ondrop = function() {
       item.remove()
     }
   })
-}
 
+  trashImg.src = '/public/images/trash-close.png'
+}
 
 
 // Modal
