@@ -117,7 +117,7 @@ header {
 .member img, .member span {
   width: 34px;
   height: 34px;
-  background: #979797;
+  background: #94b2c3;
   padding: 5px;
   border-radius: 100%;
   margin-right: -15px;
@@ -248,6 +248,7 @@ header {
   scale: 3;
   background: red;
   border-radius: 100%;
+  padding: 4px;
 }
 
 /* Modal */

@@ -230,10 +230,12 @@ function addBlockFunction(arr, place) {
 trashImg.ondragover = (e) => {
   e.preventDefault()
   trashImg.classList.add('trash-img-hover')
+  trashImg.src = '/public/images/trash-open.png'
 }
 
-trashImg.ondragleave = () => {
+trashImg.ondragleave = (e) => {
   trashImg.className = 'trash-img'
+  trashImg.src = '/public/images/trash-close.png'
 }
 
 trashImg.ondrop = function() {
